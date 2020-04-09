@@ -5,7 +5,7 @@ This Website for buy Drinks  both alcoholic and non-alcoholic
 ### Home Page
 ![alt text](https://github.com/KHkhalaf/Drinks/blob/master/Drinks/images/Screenshot_1.png)
 --------------------------------------------------------------------------------------------------------
-### List of Drinks (All Drinks both alcoholic am=nd non-alcoholic)
+### List of Drinks (All Drinks both alcoholic and non-alcoholic)
 ![alt text](https://github.com/KHkhalaf/Drinks/blob/master/Drinks/images/Screenshot_3.png)
 --------------------------------------------------------------------------------------------------------
 ### Drink Details
