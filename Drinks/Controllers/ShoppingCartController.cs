@@ -18,7 +18,6 @@ namespace Drinks.Controllers
             _shoppingCart = shoppingCart;
         }
 
-        [Authorize]
         public ViewResult Index()
         {
             var items = _shoppingCart.GetShoppingCartItems();
@@ -32,7 +31,6 @@ namespace Drinks.Controllers
             return View(shoppingCartViewModel);
         }
 
-        [Authorize]
         public RedirectToActionResult AddToShoppingCart(int drinkId)
         {
             var selectedDrink = _drinkRepository.Drinks.FirstOrDefault(p => p.DrinkId == drinkId);

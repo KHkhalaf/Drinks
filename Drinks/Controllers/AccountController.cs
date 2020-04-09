@@ -39,6 +39,9 @@ namespace Drinks.Controllers
                 var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
                 if (result.Succeeded)
                 {
+
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    var currentUser = await _userManager.GetUserAsync(HttpContext.User);
                     if (string.IsNullOrEmpty(loginViewModel.ReturnUrl))
                         return RedirectToAction("Index", "Home");
 
@@ -64,6 +67,8 @@ namespace Drinks.Controllers
 
                 if (result.Succeeded)
                 {
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    var currentUser = await _userManager.GetUserAsync(HttpContext.User);
                     return RedirectToAction("LoggedIn", "Account");
                 }
             }

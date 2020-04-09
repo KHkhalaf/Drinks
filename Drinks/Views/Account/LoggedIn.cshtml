@@ -1,6 +1,11 @@
-﻿<div class="container jumbotron">
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<div class="container jumbotron">
     <div class="col-md-12">
-        <h2 class="text-center">You were successfully registered. :)</h2>
-        <p class="text-center"> <b>You are ready to log in.</b> </p>
+        <h2 class="text-center">You were successfully registered. :) </h2>
+        <p class="text-center"> <b>You are ready to log in mr.@User.Identity.Name.</b> </p>
     </div>
 </div>

@@ -20,14 +20,12 @@ namespace Drinks.Controllers
             _shoppingCart = shoppingCart;
         }
 
-        [Authorize]
         public IActionResult Checkout()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize]
         public IActionResult Checkout(Order order)
         {
             var items = _shoppingCart.GetShoppingCartItems();

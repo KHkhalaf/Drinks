@@ -1,18 +1,14 @@
-﻿<li class="dropdown">
-    <a asp-controller="Drink"
-       asp-action="Index"
-       class="dropdown-toggle" data-toggle="dropdown">Drinks<b class="caret"></b></a>
-    <ul class="dropdown-menu">
+﻿<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-dark dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+       asp-controller="Drink"
+       asp-action="Index">Drinks<b class="caret"></b></a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         @foreach (var category in Model)
         {
-            <li>
-                <a asp-controller="Drink" asp-action="List"
+                <a class="dropdown-item a-white" asp-controller="Drink" asp-action="List"
                    asp-route-category="@category.CategoryName">@category.CategoryName</a>
-            </li>
         }
-        <li class="divider"></li>
-        <li>
-            <a asp-controller="Drink" asp-action="List" asp-route-category="">View all drinks</a>
-        </li>
-    </ul>
+        <a class="dropdown-item text-dark" asp-controller="Drink" asp-action="List" asp-route-category="">View all drinks</a>
+    </div>
 </li>
+

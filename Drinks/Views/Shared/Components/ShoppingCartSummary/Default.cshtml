@@ -5,14 +5,11 @@
 @inject SignInManager<IdentityUser> SignInManager
 
 
-@if (Model.ShoppingCart.ShoppingCartItems.Count > 0 && SignInManager.IsSignedIn(User))
+@if (Model.ShoppingCart.ShoppingCartItems.Count > 0 @*&& SignInManager.IsSignedIn(User)*@)
 {
     <li>
-        <a asp-controller="ShoppingCart">
-            <span class="glyphicon glyphicon-shopping-cart"></span>
-            <span id="cart-status">
-                @Model.ShoppingCart.ShoppingCartItems.Count
-            </span>
+        <a asp-controller="ShoppingCart" id="shoppingCart">
+            <i class="shopping-cart">🛒 @Model.ShoppingCart.ShoppingCartItems.Count</i>
         </a>
     </li>
 }

@@ -4,31 +4,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Drinks</title>
-
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" />
-    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
-    <link href="~/Content/Site.css" />
+    <link rel="stylesheet" href="~/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
     <script href="~/lib/jquery/dist/jquery.js"></script>
     <script href="~/lib/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm border-bottom box-shadow mb-3op fixed-top navbar-light" role="navigation">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Drinks</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand a-white" asp-controller="Home" asp-action="Index"><strong>Drink&Go</strong></a>
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex" id=".navbar-collapse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                        @await Component.InvokeAsync("CategoryMenu")
+                        <li class="nav-item"><a class="nav-link" asp-controller="About" asp-action="Index">About</a></li>
+                        @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
+                    <form class="form-inline my-2 my-lg-0 form-search" asp-controller="Drink" asp-action="Search" method="get">
+                        <div class="form-group">
+                            <input type="text" class="form-control mr-sm-2" placeholder="Search for a drink" aria-label="Search" name="searchString" value="@ViewData["searchString"]">
+                        </div>
+                    </form>
+                    @await Html.PartialAsync("LoginPartial")
                 </div>
             </div>
         </nav>
@@ -42,7 +47,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2019 - Drinks - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - Drinks - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 
